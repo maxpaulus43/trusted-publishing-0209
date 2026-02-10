@@ -29,5 +29,4 @@ jobs:
 
       - name: Publish to NPM with latest tag
         run: |
-          cd test-npm
           npm publish --tag latest --access public

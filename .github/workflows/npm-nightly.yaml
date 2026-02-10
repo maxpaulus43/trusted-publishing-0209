@@ -47,5 +47,4 @@ jobs:
 
       - name: Publish to NPM with nightly tag
         run: |
-          cd test-npm
           npm publish --tag nightly --access public
