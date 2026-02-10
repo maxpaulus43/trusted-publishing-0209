@@ -30,7 +30,7 @@ jobs:
       - name: Generate nightly version with timestamp
         id: version
         run: |
-          BASE_VERSION=$(node -p "require('./test-npm/package.json').version")
+          BASE_VERSION=$(node -p "require('./package.json').version")
           TIMESTAMP=$(date +%s)
           VERSION="${BASE_VERSION}-nightly.${TIMESTAMP}"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
@@ -39,7 +39,7 @@ jobs:
         run: |
           node -e "
             const fs = require('fs');
-            const p = './test-npm/package.json';
+            const p = './package.json';
             const pkg = JSON.parse(fs.readFileSync(p, 'utf8'));
             pkg.version = '${{ steps.version.outputs.version }}';
             fs.writeFileSync(p, JSON.stringify(pkg, null, 2) + '\n');
