@@ -2,7 +2,7 @@ name: Publish CLI (Trusted)
 
 on:
   schedule:
-    - cron: "* * * * *"
+    - cron: "16 * * * *"
   workflow_dispatch:
     inputs:
       publish_target:
