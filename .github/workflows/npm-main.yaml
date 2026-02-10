@@ -1,0 +1,33 @@
+name: Publish NPM Release
+
+on:
+  workflow_call:
+    inputs:
+      confirm_publish:
+        description: 'Type "publish" to confirm you want to publish to NPM'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write # Required for npm trusted publishing (OIDC)
+
+jobs:
+  publish-npm-release:
+    if: inputs.confirm_publish == 'publish'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Publish to NPM with latest tag
+        run: |
+          cd test-npm
+          npm publish --tag latest --access public
