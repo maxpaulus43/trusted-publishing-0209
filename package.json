@@ -1,6 +1,6 @@
 {
     "name": "trusted-publishing-0209",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Minimal npm package to test trusted publishing workflows",
     "main": "index.js",
     "repository": {
