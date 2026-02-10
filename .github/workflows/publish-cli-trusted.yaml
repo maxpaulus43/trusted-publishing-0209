@@ -1,8 +1,6 @@
 name: Publish CLI (Trusted)
 
 on:
-  schedule:
-    - cron: "16 12 * * *"
   workflow_dispatch:
     inputs:
       publish_target:
